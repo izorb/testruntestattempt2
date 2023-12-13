@@ -39,6 +39,13 @@ jobs:
       - name: second_test
         if:  "github.event.inputs.deployment_target == 'second_test'"
         run: pytest tests/test_button.py::test_button_exist_2 --alluredir=allure-results
+      - name: Store allure results
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path:
+            allure-results
+          retention-days: 1
   
   generate-report:
     runs-on: ubuntu-latest
