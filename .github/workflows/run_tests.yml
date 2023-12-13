@@ -34,10 +34,10 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: first_test
-        if: "github.event.inputs.deployment_target == 'first_test'" --alluredir=allure-results
+        if: "github.event.inputs.deployment_target == 'first_test'"
         run: pytest  tests/test_button.py::test_button_exist
       - name: second_test
-        if:  "github.event.inputs.deployment_target == 'second_test'" --alluredir=allure-results
+        if:  "github.event.inputs.deployment_target == 'second_test'"
         run: pytest tests/test_button.py::test_button_exist_2
   
   generate-report:
