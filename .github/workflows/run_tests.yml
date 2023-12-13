@@ -35,10 +35,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: first_test
         if: "github.event.inputs.deployment_target == 'first_test'"
-        run: pytest  tests/test_button.py::test_button_exist
+        run: pytest  tests/test_button.py::test_button_exist --alluredir=allure-results
       - name: second_test
         if:  "github.event.inputs.deployment_target == 'second_test'"
-        run: pytest tests/test_button.py::test_button_exist_2
+        run: pytest tests/test_button.py::test_button_exist_2 --alluredir=allure-results
   
   generate-report:
     runs-on: ubuntu-latest
